@@ -1,8 +1,8 @@
 # Learning to Solve a Rubik's Cube with a Dexterous Hand
 
-This is the environment implemenation based on mujoco of our paper: [**Learning to Solve a Rubik's Cube with a Dexterous Hand**](https://arxiv.org/abs/1907.11388).
+This is the environment implemenation of our paper: [**Learning to Solve a Rubik's Cube with a Dexterous Hand**](https://arxiv.org/abs/1907.11388).
 
-In our paper, the whole task is decomposed into two subtasks, namely cube rotation and layer-wise operation. We provide the two subtasks here including the trained policy. You can find the [**video**](https://www.youtube.com/watch?v=4st_54rqJB0&t=8s) and [**project page**](https://sites.google.com/view/learning-solve-a-rubiks-cube/home).
+In our paper, the whole task is decomposed into two subtasks, namely cube rotation and layer-wise operation. We provide the two subtasks here including the trained policy. You can find the [video](https://www.youtube.com/watch?v=4st_54rqJB0&t=8s) and [project page](https://sites.google.com/view/learning-solve-a-rubiks-cube/home).
 
 If you find our project helpful, your citations are highly appreciated:
 
@@ -21,8 +21,8 @@ The following platforms are currently supported:
 * OS X with Python3.6+
 
 Please make sure the following packages have been installed on your computer:
-* mujoco(https://github.com/openai/mujoco-py) (license required)
-* gym(https://github.com/openai/gym)
+* [mujoco](https://github.com/openai/mujoco-py) (license required)
+* [gym](https://github.com/openai/gym)
 * tensorflow (if you want to load our trained policies)
 
 ## Installation
@@ -47,7 +47,7 @@ python cube_solver_demo.py
 ```
 
 ## Train your model
-We provide the following environments based on the mujoco simulator. All of them are gym-compatible and you can easily train your model using RL libraries like baselines(https://github.com/openai/baselines).
+We provide the following environments based on the mujoco simulator. All of them are gym-compatible and you can easily train your model using RL libraries like [baselines](https://github.com/openai/baselines).
 * CubeRotEnv-v0: cube rotation environment
 * LayerOpUpEnv-v0: layer-wise operation with upper layer clockwise goal
 * LayerOpUpPrimeEnv-v0: layer-wise operation with upper layer anticlockwise goal
