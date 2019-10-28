@@ -1,0 +1,188 @@
+<!-- Author: tgli0809@gmail.com -->
+<mujoco model='Rotate layer 1'>
+    <compiler angle='radian' coordinate='local' texturedir='textures/' meshdir='mesh/'/>
+    <option timestep='0.002' gravity='0 0 0' iterations='50' apirate='200'>
+        <flag gravity='disable' warmstart='enable'/>
+    </option>
+    <size nconmax='5000' njmax='2000'/>
+
+    <default class='main'>
+        <include file='rubik_cube/rubik_cube_default.xml'/>
+
+        <default class='rotate:box'>
+            <geom rgba='1 1 1 0.' friction='10 0.005 0.001' solimp="0.999 0.9995 0.001" solref="0.0006 1" density='1000'/>
+        </default>
+    </default>
+    
+    <asset>
+        <include file='rubik_cube/rubik_cube_asset.xml'/>
+        <mesh name='rubik:box_mesh' file='Part1.STL' scale='0.00999 0.00999 0.00999'/>
+    </asset>
+    
+    <worldbody>
+        <light directional='false' diffuse='.8 .8 .8' specular='0.3 0.3 0.3' pos='0 0 2.0' dir='0 -.15 -1' castshadow='false'/>
+        <geom name='floor' pos='0 0 0' size='0.5 0.5 .125' type='plane' material='MatPlane' condim='3'/>
+        <body name='rubik:box_0_0_0' pos="-0.0125 -0.0125 0.1875">
+            <include file="rubik_cube/cube_body_2.5cm.xml"/>
+        </body>       
+
+        <body name='rotate_U1' pos='0.03 0 0.2125'>
+            <geom type='box' size='0.005 0.025 0.005' class='rotate:box'/>
+            <joint name='rotate_U1_joint' type='hinge' pos='-0.03 0 0' axis='0 0 -1' damping='0.0001'/>
+            <joint name='slide_U1_joint' type='slide' axis='1 0 0' damping='0.1'/>
+        </body>
+
+        <body name='rotate_U2' pos='0 0.03 0.2125'>
+            <geom type='box' size='0.025 0.005 0.005' class='rotate:box'/>
+            <joint name='rotate_U2_joint' type='hinge' pos='0 -0.03 0' axis='0 0 -1' damping='0.0001'/>
+            <joint name='slide_U2_joint' type='slide' axis='0 1 0' damping='0.1'/>         
+        </body>
+
+        <body name='rotate_U3' pos='-0.03 0 0.2125'>
+            <geom type='box' size='0.005 0.025 0.005' class='rotate:box'/>
+            <joint name='rotate_U3_joint' type='hinge' pos='0.03 0 0' axis='0 0 -1' damping='0.0001'/>
+            <joint name='slide_U3_joint' type='slide' axis='-1 0 0' damping='0.1'/>
+        </body>
+
+        <body name='rotate_U4' pos='0 -0.03 0.2125'>
+            <geom type='box' size='0.025 0.005 0.005'  class='rotate:box'/>
+            <joint name='rotate_U4_joint' type='hinge' pos='0 0.03 0' axis='0 0 -1' damping='0.0001'/>
+            <joint name='slide_U4_joint' type='slide' axis='0 -1 0' damping='0.1'/>         
+        </body>
+
+        <body name='rotate_R1' pos='0.03 0.0125 0.20'>
+            <geom type='box' size='0.005 0.005 0.025' class='rotate:box'/>
+            <joint name='rotate_R1_joint' type='hinge' pos='-0.03 0 0' axis='0 -1 0' damping='0.0001'/>
+            <joint name='slide_R1_joint' type='slide' axis='1 0 0' damping='0.1'/>
+        </body>
+
+        <body name='rotate_R2' pos='0 0.0125 0.17'>
+            <geom type='box' size='0.025 0.005 0.005' class='rotate:box'/>
+            <joint name='rotate_R2_joint' type='hinge' pos='0 0 0.03' axis='0 -1 0' damping='0.0001'/>
+            <joint name='slide_R2_joint' type='slide' axis='0 0 -1' damping='0.1'/>         
+        </body>
+
+        <body name='rotate_R3' pos='-0.03 0.0125 0.20'>
+            <geom type='box' size='0.005 0.005 0.025'  class='rotate:box'/>
+            <joint name='rotate_R3_joint' type='hinge' pos='0.03 0 0' axis='0 -1 0' damping='0.0001'/>
+            <joint name='slide_R3_joint' type='slide' axis='-1 0 0' damping='0.1'/>
+        </body>
+
+        <body name='rotate_R4' pos='0 0.0125 0.23'>
+            <geom type='box' size='0.025 0.005 0.005' class='rotate:box'/>
+            <joint name='rotate_R4_joint' type='hinge' pos='0 0 -0.03' axis='0 -1 0' damping='0.0001'/>
+            <joint name='slide_R4_joint' type='slide' axis='0 0 1' damping='0.1'/>         
+        </body>
+
+        <body name='rotate_F1' pos='0.0125 0.03 0.20'>
+            <geom type='box' size='0.005 0.005 0.025'  class='rotate:box'/>
+            <joint name='rotate_F1_joint' type='hinge' pos='0 -0.03 0' axis='-1 0 0' damping='0.0001'/>
+            <joint name='slide_F1_joint' type='slide' axis='0 1 0' damping='0.1'/>
+        </body>
+
+        <body name='rotate_F2' pos='0.0125 0 0.23'>
+            <geom type='box' size='0.005 0.025 0.005' class='rotate:box'/>
+            <joint name='rotate_F2_joint' type='hinge' pos='0 0 -0.03' axis='-1 0 0' damping='0.0001'/>
+            <joint name='slide_F2_joint' type='slide' axis='0 0 1' damping='0.1'/>         
+        </body>
+
+        <body name='rotate_F3' pos='0.0125 -0.03 0.20'>
+            <geom type='box' size='0.005 0.005 0.025'  class='rotate:box'/>
+            <joint name='rotate_F3_joint' type='hinge' pos='0 0.03 0' axis='-1 0 0' damping='0.0001'/>
+            <joint name='slide_F3_joint' type='slide' axis='0 -1 0' damping='0.1'/>
+        </body>
+
+        <body name='rotate_F4' pos='0.0125 0 0.17'>
+            <geom type='box' size='0.005 0.025 0.005' class='rotate:box'/>
+            <joint name='rotate_F4_joint' type='hinge' pos='0 0 0.03' axis='-1 0 0' damping='0.0001'/>
+            <joint name='slide_F4_joint' type='slide' axis='0 0 -1' damping='0.1'/>         
+        </body>
+
+    </worldbody>
+
+    
+    <actuator>
+        <position name='U1_rotate' joint='rotate_U1_joint' ctrlrange='-10 10' forcerange='-10 10' kp='1'/>
+        <position name='U2_rotate' joint='rotate_U2_joint' ctrlrange='-10 10' forcerange='-10 10' kp='1'/>
+        <position name='U3_rotate' joint='rotate_U3_joint' ctrlrange='-10 10' forcerange='-10 10' kp='1'/>
+        <position name='U4_rotate' joint='rotate_U4_joint' ctrlrange='-10 10' forcerange='-10 10' kp='1'/>
+        <position name='U1_slide' joint='slide_U1_joint' ctrlrange='-1 1' forcerange='-10 10' kp='1'/>
+        <position name='U2_slide' joint='slide_U2_joint' ctrlrange='-1 1' forcerange='-10 10' kp='1'/>
+        <position name='U3_slide' joint='slide_U3_joint' ctrlrange='-1 1' forcerange='-10 10' kp='1'/>
+        <position name='U4_slide' joint='slide_U4_joint' ctrlrange='-1 1' forcerange='-10 10' kp='1'/>
+      
+        <position name='R1_rotate' joint='rotate_R1_joint' ctrlrange='-10 10' forcerange='-10 10' kp='1'/>
+        <position name='R2_rotate' joint='rotate_R2_joint' ctrlrange='-10 10' forcerange='-10 10' kp='1'/>
+        <position name='R3_rotate' joint='rotate_R3_joint' ctrlrange='-10 10' forcerange='-10 10' kp='1'/>
+        <position name='R4_rotate' joint='rotate_R4_joint' ctrlrange='-10 10' forcerange='-10 10' kp='1'/>
+        <position name='R1_slide' joint='slide_R1_joint' ctrlrange='-1 1' forcerange='-10 10' kp='1'/>
+        <position name='R2_slide' joint='slide_R2_joint' ctrlrange='-1 1' forcerange='-10 10' kp='1'/>
+        <position name='R3_slide' joint='slide_R3_joint' ctrlrange='-1 1' forcerange='-10 10' kp='1'/>
+        <position name='R4_slide' joint='slide_R4_joint' ctrlrange='-1 1' forcerange='-10 10' kp='1'/>
+
+        <position name='F1_rotate' joint='rotate_F1_joint' ctrlrange='-10 10' forcerange='-10 10' kp='1'/>
+        <position name='F2_rotate' joint='rotate_F2_joint' ctrlrange='-10 10' forcerange='-10 10' kp='1'/>
+        <position name='F3_rotate' joint='rotate_F3_joint' ctrlrange='-10 10' forcerange='-10 10' kp='1'/>
+        <position name='F4_rotate' joint='rotate_F4_joint' ctrlrange='-10 10' forcerange='-10 10' kp='1'/>
+        <position name='F1_slide' joint='slide_F1_joint' ctrlrange='-1 1' forcerange='-10 10' kp='1'/>
+        <position name='F2_slide' joint='slide_F2_joint' ctrlrange='-1 1' forcerange='-10 10' kp='1'/>
+        <position name='F3_slide' joint='slide_F3_joint' ctrlrange='-1 1' forcerange='-10 10' kp='1'/>
+        <position name='F4_slide' joint='slide_F4_joint' ctrlrange='-1 1' forcerange='-10 10' kp='1'/>
+      
+    </actuator>
+
+    <contact>
+        <exclude body1='rotate_U1' body2='rotate_R1'/>
+        <exclude body1='rotate_U1' body2='rotate_R2'/>
+        <exclude body1='rotate_U1' body2='rotate_R3'/>
+        <exclude body1='rotate_U1' body2='rotate_R4'/>
+        <exclude body1='rotate_U2' body2='rotate_R1'/>
+        <exclude body1='rotate_U2' body2='rotate_R2'/>
+        <exclude body1='rotate_U2' body2='rotate_R3'/>
+        <exclude body1='rotate_U2' body2='rotate_R4'/>
+        <exclude body1='rotate_U3' body2='rotate_R1'/>
+        <exclude body1='rotate_U3' body2='rotate_R2'/>
+        <exclude body1='rotate_U3' body2='rotate_R3'/>
+        <exclude body1='rotate_U3' body2='rotate_R4'/>
+        <exclude body1='rotate_U4' body2='rotate_R1'/>
+        <exclude body1='rotate_U4' body2='rotate_R2'/>
+        <exclude body1='rotate_U4' body2='rotate_R3'/>
+        <exclude body1='rotate_U4' body2='rotate_R4'/>
+
+        <exclude body1='rotate_F1' body2='rotate_R1'/>
+        <exclude body1='rotate_F1' body2='rotate_R2'/>
+        <exclude body1='rotate_F1' body2='rotate_R3'/>
+        <exclude body1='rotate_F1' body2='rotate_R4'/>
+        <exclude body1='rotate_F2' body2='rotate_R1'/>
+        <exclude body1='rotate_F2' body2='rotate_R2'/>
+        <exclude body1='rotate_F2' body2='rotate_R3'/>
+        <exclude body1='rotate_F2' body2='rotate_R4'/>
+        <exclude body1='rotate_F3' body2='rotate_R1'/>
+        <exclude body1='rotate_F3' body2='rotate_R2'/>
+        <exclude body1='rotate_F3' body2='rotate_R3'/>
+        <exclude body1='rotate_F3' body2='rotate_R4'/>
+        <exclude body1='rotate_F4' body2='rotate_R1'/>
+        <exclude body1='rotate_F4' body2='rotate_R2'/>
+        <exclude body1='rotate_F4' body2='rotate_R3'/>
+        <exclude body1='rotate_F4' body2='rotate_R4'/>
+
+        <exclude body1='rotate_F1' body2='rotate_U1'/>
+        <exclude body1='rotate_F1' body2='rotate_U2'/>
+        <exclude body1='rotate_F1' body2='rotate_U3'/>
+        <exclude body1='rotate_F1' body2='rotate_U4'/>
+        <exclude body1='rotate_F2' body2='rotate_U1'/>
+        <exclude body1='rotate_F2' body2='rotate_U2'/>
+        <exclude body1='rotate_F2' body2='rotate_U3'/>
+        <exclude body1='rotate_F2' body2='rotate_U4'/>
+        <exclude body1='rotate_F3' body2='rotate_U1'/>
+        <exclude body1='rotate_F3' body2='rotate_U2'/>
+        <exclude body1='rotate_F3' body2='rotate_U3'/>
+        <exclude body1='rotate_F3' body2='rotate_U4'/>
+        <exclude body1='rotate_F4' body2='rotate_U1'/>
+        <exclude body1='rotate_F4' body2='rotate_U2'/>
+        <exclude body1='rotate_F4' body2='rotate_U3'/>
+        <exclude body1='rotate_F4' body2='rotate_U4'/>
+    </contact>
+
+    <include file="rubik_cube/rubik_cube_others.xml"/>
+</mujoco>

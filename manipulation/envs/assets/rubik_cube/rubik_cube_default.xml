@@ -1,0 +1,14 @@
+<mujoco>
+    <default class='rubik:visual'>
+        <geom contype='1' conaffinity='1' density='0.1'/>
+    </default>
+    
+    <default class='rubik:ball_joint'>
+        <joint damping='0.001'/>
+    </default>
+    
+    <default class='rubik:box'>
+      <geom contype='1' conaffinity='1' condim='4' density='567' solimp="0.9999 0.99995 0.001" solref="0.006 1"/> 
+	 <!--<geom contype='1' conaffinity='1' condim='3' friction='0.3 0.005 0.001' solimp="0.9999 0.99995 0.001" solref="0.006 1" density='100'/> -->
+    </default>
+</mujoco>

@@ -1,0 +1,6 @@
+*.pyc
+*.egg-info/
+*.idea/
+
+.DS_Store
+__pycache__/

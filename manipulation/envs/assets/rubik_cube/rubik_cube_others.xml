@@ -1,0 +1,11 @@
+<mujoco>
+    <contact>
+        <pair geom1='rubik:box_0_0_0' geom2='rubik:box_1_1_1' condim='1' friction='0.1 0.005 0.001' solimp="0.99 0.995 0.001" solref="0.0006 1"/>
+        <pair geom1='rubik:box_0_0_0' geom2='rubik:box_1_1_0' condim='1' friction='0.1 0.005 0.001' solimp="0.99 0.995 0.001" solref="0.0006 1"/>
+        <pair geom1='rubik:box_0_0_0' geom2='rubik:box_1_0_1' condim='1' friction='0.1 0.005 0.001' solimp="0.99 0.995 0.001" solref="0.0006 1"/>
+        <pair geom1='rubik:box_0_0_0' geom2='rubik:box_1_0_0' condim='1' friction='0.1 0.005 0.001' solimp="0.99 0.995 0.001" solref="0.0006 1"/>
+        <pair geom1='rubik:box_0_0_0' geom2='rubik:box_0_1_1' condim='1' friction='0.1 0.005 0.001' solimp="0.99 0.995 0.001" solref="0.0006 1"/>
+        <pair geom1='rubik:box_0_0_0' geom2='rubik:box_0_1_0' condim='1' friction='0.1 0.005 0.001' solimp="0.99 0.995 0.001" solref="0.0006 1"/>
+        <pair geom1='rubik:box_0_0_0' geom2='rubik:box_0_0_1' condim='1' friction='0.1 0.005 0.001' solimp="0.99 0.995 0.001" solref="0.0006 1"/>
+    </contact>
+</mujoco>

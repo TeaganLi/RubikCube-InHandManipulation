@@ -1,0 +1,41 @@
+<!-- Author: tgli0809@gmail.com -->
+<mujoco model='manipulate_rubik_cube'>
+    <compiler angle='radian' coordinate='local' texturedir='textures/' meshdir='mesh/shadow_visual' />
+    <option timestep='0.002' iterations='50' apirate='200'>
+        <flag warmstart='enable'/>
+    </option>
+
+    <include file="shadow_gym/shared.xml"/>
+
+    <default class='main'>
+        <include file='rubik_cube/rubik_cube_default.xml'/>
+    </default>
+    
+    <asset>
+        <include file='shadow_gym/shared_asset.xml'/>
+        <include file='rubik_cube/rubik_cube_asset.xml'/>
+
+        <mesh name='rubik:box_mesh' file='Part1.STL' scale='0.00998 0.00998 0.00998'/>
+	<texture name="sky:tex"     type="skybox"   builtin="gradient" width="100" height="100" rgb1="1 1 1" rgb2="0.3 0.3 0.8" />
+        <texture name="floor:tex"   type="2d"        builtin="checker" rgb1=".2 .3 .4" rgb2=".1 .2 .3" width="100" height="100" />
+        <material name='floor:mat'      texture="floor:tex"  shininess="0.8" texrepeat="10 10" specular="0.7"  reflectance="0.5" />
+    </asset>
+    
+    <worldbody>
+	<light name="light3" mode="targetbody" target="robot0:forearm" directional="true" pos="1 1 3"  castshadow='false'/>
+        <geom name='floor' material="floor:mat" pos='1 1 0' size='1 1 0.1'  type='plane' />
+        <include file="shadow_gym/robot.xml"/>       
+
+        <body name='rubik:box_0_0_0' pos="1 0.87 0.2">
+            <include file="rubik_cube/cube_body_2.5cm.xml"/>
+            <joint name='rubik:free_joint_0_0_0' type='free' damping='0'/>
+    	</body> 
+
+        <body name="target" pos="1 0.87 0.2">
+            <geom name="target" type="box" size="0.025 0.025 0.025" material="material:cube" contype='0' conaffinity='0'/>
+            <joint name='target_free_joint' type='free' damping='0'/>
+        </body>
+    </worldbody>
+    
+    <include file="rubik_cube/rubik_cube_others.xml"/>
+</mujoco>

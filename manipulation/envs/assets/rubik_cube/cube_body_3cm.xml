@@ -1,0 +1,67 @@
+<mujoco>
+    <!-- The box size is 3 cm -->
+        <body name='box_0_0_0' pos='-0.015 -0.015 0.185'>
+            <geom name='box_0_0_0' pos='-0.015 -0.015 -0.015' euler='0 0 0' type='mesh' mesh='box_circle'  material='Black' class='cube:box'/>
+            <geom name='box_0_0_0_y' type='box' size='0.012 0.012 .0001' material='Yellow' pos='0 0 -0.015' class='cube:visual'/>
+            <geom name='box_0_0_0_b' type='box' size='.0001 0.012 0.012' material='Blue' pos='-0.015 0 0' class='cube:visual'/>
+            <geom name='box_0_0_0_o' type='box' size='0.012 .0001 0.012' material='Orange' pos='0 -0.015 0' class='cube:visual'/>
+            <joint name='free_joint_0_0_0' type='free' />
+
+            <body name='box_1_0_0' pos='0.03 0 0'>
+                <geom name='box_1_0_0' pos='0.015 -0.015 -0.015' euler='0 0 1.571' type='mesh' mesh='box_circle'  material='Black' class='cube:box'/>
+                <geom name='box_1_0_0_y' type='box' size='0.012 0.012 .0001' material='Yellow' pos='0 0 -0.015' class='cube:visual'/>
+                <geom name='box_1_0_0_g' type='box' size='.0001 0.012 0.012' material='Green' pos='0.015 0 0' class='cube:visual'/>
+                <geom name='box_1_0_0_o' type='box' size='0.012 .0001 0.012' material='Orange' pos='0 -0.015 0' class='cube:visual'/>
+                <joint name='ball_joint_1_0_0' type='ball' pos='-0.015 0.015 0.015' class='cube:ball_joint'/>
+            </body>
+
+            <body name='box_0_1_0' pos='0 0.03 0'>
+                <geom name='box_0_1_0' pos='-0.015 0.015 -0.015' euler='0 0 -1.571' type='mesh' mesh='box_circle' material='Black' class='cube:box'/>
+                <geom name='box_0_1_0_y' type='box' size='0.012 0.012 .0001' material='Yellow' pos='0 0 -0.015' class='cube:visual'/>
+                <geom name='box_0_1_0_b' type='box' size='.0001 0.012 0.012' material='Blue' pos='-0.015 0 0' class='cube:visual'/>
+                <geom name='box_0_1_0_r' type='box' size='0.012 .0001 0.012' material='Red' pos='0 0.015 0' class='cube:visual'/>
+                <joint name='ball_joint_0_1_0' type='ball' pos='0.015 -0.015 0.015' class='cube:ball_joint'/>
+            </body>
+
+            <body name='box_1_1_0' pos='0.03 0.03 0'>
+                <geom name='box_1_1_0' pos='0.015 0.015 -0.015' euler='0 0 3.141' type='mesh' mesh='box_circle' material='Black' class='cube:box'/>
+                <geom name='box_1_1_0_y' type='box' size='0.012 0.012 .0001' material='Yellow' pos='0 0 -0.015' class='cube:visual'/>
+                <geom name='box_1_1_0_g' type='box' size='.0001 0.012 0.012' material='Green' pos='0.015 0 0' class='cube:visual'/>
+                <geom name='box_1_1_0_r' type='box' size='0.012 .0001 0.012' material='Red' pos='0 0.015 0' class='cube:visual'/>
+                <joint name='ball_joint_1_1_0' type='ball' pos='-0.015 -0.015 0.015' class='cube:ball_joint'/>
+            </body>
+
+            <body name='box_0_0_1' pos='0 0 0.03'>
+                <geom name='box_0_0_1' pos='-0.015 -0.015 0.015' euler='-1.571 0 0' type='mesh' mesh='box_circle' material='Black' class='cube:box'/>
+                <geom name='box_0_0_1_w' type='box' size='0.012 0.012 .0001' material='White' pos='0 0 0.015' class='cube:visual'/>
+                <geom name='box_0_0_1_b' type='box' size='.0001 0.012 0.012' material='Blue' pos='-0.015 0 0' class='cube:visual'/>
+                <geom name='box_0_0_1_o' type='box' size='0.012 .0001 0.012' material='Orange' pos='0 -0.015 0' class='cube:visual'/>
+                <joint name='ball_joint_0_0_1' type='ball' pos='0.015 0.015 -0.015' class='cube:ball_joint'/>
+            </body>
+
+
+            <body name='box_1_0_1' pos='0.03 0 0.03'>
+                <geom name='box_1_0_1' pos='0.015 -0.015 0.015' euler='-1.571 0 1.571' type='mesh' mesh='box_circle' material='Black' class='cube:box'/>
+                <geom name='box_1_0_1_w' type='box' size='0.012 0.012 .0001' material='White' pos='0 0 0.015' class='cube:visual'/>
+                <geom name='box_1_0_1_g' type='box' size='.0001 0.012 0.012' material='Green' pos='0.015 0 0' class='cube:visual'/>
+                <geom name='box_1_0_1_o' type='box' size='0.012 .0001 0.012' material='Orange' pos='0 -0.015 0' class='cube:visual'/>
+                <joint name='ball_joint_1_0_1' type='ball' pos='-0.015 0.015 -0.015' class='cube:ball_joint'/>
+            </body>
+
+            <body name='box_0_1_1' pos='0 0.03 0.03'>
+                <geom name='box_0_1_1' pos='-0.015 0.015 0.015' euler='1.571 0 -1.571' type='mesh' mesh='box_circle' material='Black' class='cube:box'/>
+                <geom name='box_0_1_1_w' type='box' size='0.012 0.012 .0001' material='White' pos='0 0 0.015' class='cube:visual'/>
+                <geom name='box_0_1_1_b' type='box' size='.0001 0.012 0.012' material='Blue' pos='-0.015 0 0' class='cube:visual'/>
+                <geom name='box_0_1_1_r' type='box' size='0.012 .0001 0.012' material='Red' pos='0 0.015 0' class='cube:visual'/>
+                <joint name='ball_joint_0_1_1' type='ball' pos='0.015 -0.015 -0.015' class='cube:ball_joint'/>
+            </body>
+
+            <body name='box_1_1_1' pos='0.03 0.03 0.03'>
+                <geom name='box_1_1_1' pos='0.015 0.015 0.015' euler='1.571 0 3.141' type='mesh' mesh='box_circle' material='Black' class='cube:box'/>
+                <geom name='box_1_1_1_w' type='box' size='0.012 0.012 .0001' material='White' pos='0 0 0.015' class='cube:visual'/>
+                <geom name='box_1_1_1_g' type='box' size='.0001 0.012 0.012' material='Green' pos='0.015 0 0' class='cube:visual'/>
+                <geom name='box_1_1_1_r' type='box' size='0.012 .0001 0.012' material='Red' pos='0 0.015 0' class='cube:visual'/>
+                <joint name='ball_joint_1_1_1' type='ball' pos='-0.015 -0.015 -0.015' class='cube:ball_joint'/>
+            </body>
+        </body>
+</mujoco>
