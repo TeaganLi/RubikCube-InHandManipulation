@@ -15,7 +15,7 @@ def test():
                         help="number of the demo episodes")
     args = parser.parse_args()
     assert args.env in ['CubeRot', 'LayerOp'], "env should be CubeRot or LayerOp"
-    if args.env is 'CubeRot': env = CubeRotEnv()
+    if args.env == 'CubeRot': env = CubeRotEnv()
     else: env = LayerOpEnvUpPrime()
     policy_path = path.join(path.dirname(__file__), "../data", args.env) + ".pkl"
     with open(policy_path, 'rb') as f:
@@ -26,7 +26,7 @@ def test():
         for _ in range(10):
             env.render()
         env.render()
-        print("Demo epi: {}/{}".format(j, args.num_epi))
+        print("Demo epi: {}/{}".format(j+1, args.num_epi))
         for i in range(100):
             obs = env._get_obs()
             o, ag, g = obs['observation'], obs['achieved_goal'], obs['desired_goal']
